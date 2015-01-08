@@ -4,8 +4,16 @@
 ##      Description:    Reads in household_power_consumption.txt and
 ##                      creates a histogram png file of the 
 ##                      Global Active Power field 
-##      Packages:       data.table, dplyr
+##      Packages:       downloader, data.table, dplyr
 #########################################################################
+
+## If data file not in working directory, download and unzip the file
+if(!file.exists("household_power_consumption.txt")) {
+        library(downloader)
+        url <- "http://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+        download(url,dest="hpc.zip") 
+        unzip ("hpc.zip")
+}
 
 ## Use fread() function in data.table to efficiently read in the large file
 library(data.table)

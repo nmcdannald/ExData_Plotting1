@@ -5,8 +5,17 @@
 ##                      creates a line plot png file of the 
 ##                      Global Active Power of during the timeframe of
 ##                      02/01/2007 through 02/03/2007 
-##      Packages:       data.table, dplyr
+##      Packages:       downloader, data.table, dplyr
 #########################################################################
+
+
+## If data file not in working directory, download and unzip the file
+if(!file.exists("household_power_consumption.txt")) {
+        library(downloader)
+        url <- "http://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+        download(url,dest="hpc.zip") 
+        unzip ("hpc.zip")
+}
 
 ## Use fread() function in data.table to efficiently read in the large file
 library(data.table)
