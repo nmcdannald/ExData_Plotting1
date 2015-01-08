@@ -1,9 +1,9 @@
 #########################################################################
-##      Create Date:    01/06/2014
+##      Create Date:    01-06-2014
 ##      Author:         Nick McDannald
-##      Description:    
-##      
-##
+##      Description:    Reads in household_power_consumption.txt and
+##                      creates a histogram png file of the 
+##                      Global Active Power field 
 ##      Packages:       data.table, dplyr
 #########################################################################
 
@@ -17,8 +17,14 @@ hpc$Date <- as.Date(hpc$Date,"%d/%m/%Y")
 ## Use filter() function in dplyr to get subset of data we are interested in
 library(dplyr)
 sub_hpc <- filter(hpc, Date >= as.Date("2007-02-01 00:00:00"), 
-                        Date < as.Date("2007-02-02 00:00:00"))
+                        Date < as.Date("2007-02-03 00:00:00"))
 
 ## Remove hpc data.frame to free up space 
 rm(hpc)
 
+## make a histrogram of Global active power
+hist(as.numeric(sub_hpc$Global_active_power),xlab="Global Active Power (kilowatts)",col="red",main = "Global Active Power")
+
+## Create png file of histogram
+dev.copy(png, file ="plot1.png")
+dev.off()
