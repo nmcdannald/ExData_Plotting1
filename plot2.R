@@ -1,5 +1,5 @@
 #########################################################################
-##      Create Date:    01-06-2014
+##      Create Date:    01-07-2014
 ##      Author:         Nick McDannald
 ##      Description:    Reads in household_power_consumption.txt and
 ##                      creates a line plot png file of the 
