@@ -29,8 +29,8 @@ sub_hpc$datetime <- as.POSIXct(paste(sub_hpc$Date, sub_hpc$Time),
 
 ## make a line plot of Global active power over the three days in timeframe
 plot(sub_hpc$datetime,sub_hpc$Global_active_power, type="l",
-     +      ylab="Global Active Power (kilowatts)",xlab = "")
+           ylab="Global Active Power (kilowatts)",xlab = "")
 
 ## Create png file of the line plot
-dev.copy(png, file ="plot2.png")
+dev.copy(png, file ="plot2.png",width = 480, height = 480)
 dev.off()

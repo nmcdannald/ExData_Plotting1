@@ -26,5 +26,5 @@ rm(hpc)
 hist(as.numeric(sub_hpc$Global_active_power),xlab="Global Active Power (kilowatts)",col="red",main = "Global Active Power")
 
 ## Create png file of histogram
-dev.copy(png, file ="plot1.png")
+dev.copy(png, file ="plot1.png",width = 480, height = 480)
 dev.off()
